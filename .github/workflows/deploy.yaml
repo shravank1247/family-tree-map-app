@@ -1,0 +1,39 @@
+# .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Trigger this workflow whenever a push is made to the 'main' branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use a stable Node.js version
+          cache: 'npm'
+          
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Run Build
+        # This is where 'npm run build' is executed!
+        run: npm run build
+        
+      - name: Deploy to GitHub Pages
+        # The gh-pages action handles the deployment
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # This token grants permission to push to the gh-pages branch
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # The source directory to deploy (the output of npm run build)
+          publish_dir: ./dist
+          # The branch to push the built files to (matching your package.json setup)
+          publish_branch: gh-pages
