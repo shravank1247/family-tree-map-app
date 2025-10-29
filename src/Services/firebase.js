@@ -41,10 +41,17 @@ export const db = getFirestore(app);
 
 // Helper to get the user's family_trees collection reference
 const getUserTreesCollectionRef = (userId) => {
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-    return collection(db, 'artifacts', appId, 'users', userId, 'family_trees');
+    // const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+    // return collection(db, 'artifacts', appId, 'users', userId, 'family_trees');
+return collection(db, 'shared_trees')
+
 };
 
+
+// Used by getAllTreeIds and deleteTree
+const getTreeDocRef = (treeId) => {
+    return doc(getGlobalTreesCollectionRef(), treeId);
+};
 
 /**
  * Saves the tree structure (nodes and edges) to Firestore.
