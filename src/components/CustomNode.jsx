@@ -65,6 +65,7 @@ const CustomNode = ({ id, data, selected, isConnectable }) => {
         <div className="text-base font-bold truncate text-gray-800 leading-tight">
           
           {name}
+           {(name && data.familyName) ? <span className="mx-2"> </span> : null}
           {data.familyName && <span><span className="mr-1 font-medium"></span>{data.familyName}</span>}
         </div>
 
