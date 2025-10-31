@@ -64,8 +64,8 @@ const CustomNode = ({ id, data, selected, isConnectable }) => {
         {/* Name: larger font */}
         <div className="text-base ">
           
-          {data.name && <span><span className="font-bold truncate text-gray-800 leading-tight"></span>{data.name}</span>}
-          {data.familyName && <span><span className="mr-1 font-medium">Ann:</span>{data.familyName}</span>}
+          {data.name && <span><span className="font-bold truncate text-gray-800 leading-tight"></span>{name}</span>}
+          {data.familyName && <span><span className="mr-1 font-medium"></span>{data.familyName}</span>}
         </div>
 
         {/* DOB/Anniversary: extra small font, lighter color. */}
