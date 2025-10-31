@@ -62,9 +62,9 @@ const CustomNode = ({ id, data, selected, isConnectable }) => {
       {/* Node Content */}
       <div className="w-full text-center py-1 px-1 flex flex-col justify-center flex-grow">
         {/* Name: larger font */}
-        <div className="text-base ">
+        <div className="text-base font-bold truncate text-gray-800 leading-tight">
           
-          {data.name && <span><span className="font-bold truncate text-gray-800 leading-tight"></span>{name}</span>}
+          {name}
           {data.familyName && <span><span className="mr-1 font-medium"></span>{data.familyName}</span>}
         </div>
 
